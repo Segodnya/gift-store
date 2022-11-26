@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="index.css" />
+    <script src="index.js" async></script>
     <title>Freebie - Gift Store Website</title>
   </head>
   <body class="page">
@@ -47,21 +48,21 @@
               <a href="" class="gifts__link">See More &gt;</a>
             </div>
           </div>
-          <div class="gifts__card">
+          <div class="gifts__card hidden">
             <img src="./images/gifts__image-2.png" alt="Anniversary gift" class="gifts__image" />
             <div class="gifts__info">
               <h3 class="gifts__name">Anniversary</h3>
               <a href="" class="gifts__link">See More &gt;</a>
             </div>
           </div>
-          <div class="gifts__card">
+          <div class="gifts__card hidden">
             <img src="./images/gifts__image-3.png" alt="Valentine's Day gift" class="gifts__image" />
             <div class="gifts__info">
               <h3 class="gifts__name">Valentine's Day</h3>
               <a href="" class="gifts__link">See More &gt;</a>
             </div>
           </div>
-          <div class="gifts__card">
+          <div class="gifts__card hidden">
             <img src="./images/gifts__image-4.png" alt="Christmas gift" class="gifts__image" />
             <div class="gifts__info">
               <h3 class="gifts__name">Christmas</h3>
@@ -69,6 +70,7 @@
             </div>
           </div>
         </div>
+        <button type="button" class="button button_place_gifts"></button>
       </section>
       <section class="landing">
         <h2 class="landing__title">Ready to get started?</h2>
@@ -80,25 +82,26 @@
         <h2 class="blogs__title"></h2>
         <p class="blogs__subtitle"></p>
         <div class="blogs__cards">
-          <article class="blog__main">
-            <div class="blog__overlay"></div>
-            <div class="blog__info">
-              <p class="blog__author">Mr. John Doe</p>
-              <h1 class="blog__title">The best way to wish your wife</h1>
-              <a href="#" class="link blog__link">Read More</a>
+          <article class="blogs__main">
+            <div class="blogs__overlay"></div>
+            <div class="blogs__info">
+              <p class="blogs__author">Mr. John Doe</p>
+              <h1 class="blogs__title">The best way to wish your wife</h1>
+              <a href="#" class="link blogs__link">Read More</a>
             </div>
           </article>
-          <article class="blog__card">
-            <h3 class="blog__title">Database to find the gifts for your girlfriend</h3>
-            <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
-            <a href="#" class="link blog__link blog__link_black">Read More</a>
+          <article class="blogs__card hidden">
+            <h3 class="blogs__title">Database to find the gifts for your girlfriend</h3>
+            <p class="blogs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
+            <a href="#" class="link blogs__link blogs__link_black">Read More</a>
           </article>
-          <article class="blog__card">
-            <h3 class="blog__title">How Artificial Intelligence read your mind to find the best gift</h3>
-            <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
-            <a href="#" class="link blog__link blog__link_black">Read More</a>
+          <article class="blogs__card hidden">
+            <h3 class="blogs__title">How Artificial Intelligence read your mind to find the best gift</h3>
+            <p class="blogs__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
+            <a href="#" class="link blogs__link blogs__link_black">Read More</a>
           </article>
         </div>
+        <button type="button" class="button button_place_blogs">Show More</button>
       </section>
     </main>
     <footer class="footer">
