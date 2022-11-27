@@ -10,6 +10,10 @@
     <title>Freebie - Gift Store Website</title>
   </head>
   <body class="page">
+    <section class="loader">
+      <div class="loader__pic rotation"></div>
+      <div class="loader__text">Loading...</div>
+    </section>
     <header class="header">
       <a href="#" class="link header__menu"></a>
       <img src="./images/logo.svg" alt="header logo" class="header__logo" />
@@ -41,28 +45,28 @@
         <h2 class="gifts__title">Gifts for all Occasions</h2>
         <p class="gifts__subtitle">“Try our web app to find the best gifts for all occasions”</p>
         <div class="gifts__cards">
-          <div class="gifts__card">
+          <div class="gifts__card gifts__card_active">
             <img src="./images/gifts__image-1.png" alt="birthday gift" class="gifts__image" />
             <div class="gifts__info">
               <h3 class="gifts__name">Birthday</h3>
               <a href="" class="gifts__link">See More &gt;</a>
             </div>
           </div>
-          <div class="gifts__card hidden">
+          <div class="gifts__card">
             <img src="./images/gifts__image-2.png" alt="Anniversary gift" class="gifts__image" />
             <div class="gifts__info">
               <h3 class="gifts__name">Anniversary</h3>
               <a href="" class="gifts__link">See More &gt;</a>
             </div>
           </div>
-          <div class="gifts__card hidden">
+          <div class="gifts__card">
             <img src="./images/gifts__image-3.png" alt="Valentine's Day gift" class="gifts__image" />
             <div class="gifts__info">
               <h3 class="gifts__name">Valentine's Day</h3>
               <a href="" class="gifts__link">See More &gt;</a>
             </div>
           </div>
-          <div class="gifts__card hidden">
+          <div class="gifts__card">
             <img src="./images/gifts__image-4.png" alt="Christmas gift" class="gifts__image" />
             <div class="gifts__info">
               <h3 class="gifts__name">Christmas</h3>
@@ -70,7 +74,11 @@
             </div>
           </div>
         </div>
-        <button type="button" class="button button_place_gifts"></button>
+        <div class="gifts__nav">
+          <button type="button" class="button button_place_prev">prev</button>
+          <div class="gifts__paginator"></div>
+          <button type="button" class="button button_place_next">next</button>
+        </div>
       </section>
       <section class="landing">
         <h2 class="landing__title">Ready to get started?</h2>
