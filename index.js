@@ -14,6 +14,18 @@ sleep(3000).then(() => {
   hideLoader();
 });
 
+// Prevent Reloads on Links Clicking
+
+let allLinks = document.querySelectorAll(".link");
+
+function preventDefaultOnLinks(event) {
+  event.preventDefault();
+}
+
+allLinks.forEach((element) => {
+  element.addEventListener("click", preventDefaultOnLinks);
+});
+
 // Gifts
 
 let giftsCards = document.querySelectorAll(".gifts__card");
@@ -56,6 +68,41 @@ function showPrev() {
 showPaginator();
 nextButton.addEventListener("click", showNext);
 prevButton.addEventListener("click", showPrev);
+
+// Likes
+
+let giftsCardsArea = document.querySelector(".gifts__cards");
+
+function toggleLike() {
+  let currentActiveGift = giftsCardsArea.querySelector(".gifts__card_active");
+  let likeButton = currentActiveGift.querySelector(".gifts__like");
+  likeButton.classList.toggle("gifts__like_active");
+}
+
+function detectDoubleTapClosure() {
+  let lastTap = 0;
+  let timeout;
+  return function detectDoubleTap(event) {
+    const curTime = new Date().getTime();
+    const tapLen = curTime - lastTap;
+    if (tapLen < 500 && tapLen > 0) {
+      console.log("Double tapped!");
+      event.preventDefault();
+      toggleLike();
+    } else {
+      timeout = setTimeout(() => {
+        clearTimeout(timeout);
+      }, 500);
+    }
+    lastTap = curTime;
+  };
+}
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  giftsCardsArea.addEventListener("touchend", detectDoubleTapClosure());
+}
+
+giftsCardsArea.addEventListener("dblclick", toggleLike);
 
 // Blogs
 

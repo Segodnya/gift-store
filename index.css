@@ -55,6 +55,7 @@
   height: 100vh;
   background-color: #fff;
   z-index: 2;
+  opacity: 0.9;
 }
 .loader__pic {
   margin: 50px auto;
@@ -92,6 +93,7 @@
   text-transform: uppercase;
   color: #f7941e;
   background: rgba(247, 148, 30, 0.3);
+  touch-action: manipulation;
 }
 .button_place_prev {
   margin: 0;
@@ -118,7 +120,7 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.9);
   z-index: 1;
 }
 .header__menu {
@@ -130,11 +132,13 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  touch-action: manipulation;
 }
 .header__logo {
   display: block;
   width: 30px;
   height: 30px;
+  touch-action: manipulation;
 }
 .header__button {
   display: flex;
@@ -149,11 +153,12 @@
   border: 1px solid #f7941e;
   border-radius: 5px;
   text-transform: uppercase;
+  touch-action: manipulation;
 }
 
 .lead {
   width: 100%;
-  padding: 60px 0 0;
+  padding: 50px 0 0;
   box-sizing: border-box;
 }
 .lead__post {
@@ -207,6 +212,7 @@
   border: 1px solid #f7941e;
   border-radius: 5px;
   text-transform: uppercase;
+  touch-action: manipulation;
 }
 
 .gifts {
@@ -260,6 +266,20 @@
   font-size: 20px;
   line-height: 24px;
   margin: 0;
+}
+.gifts__like {
+  display: none;
+  vertical-align: text-top;
+  margin: 0 0 0 10px;
+  width: 16px;
+  height: 16px;
+  background-image: url("./images/like-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.gifts__like_active {
+  display: inline-block;
 }
 .gifts__link {
   font-size: 16px;
@@ -316,13 +336,14 @@
   border: 1px solid #000;
   font-size: 18px;
   line-height: 22px;
+  touch-action: manipulation;
 }
 .landing__button_black {
   color: #fff;
   background: #231f20;
 }
 .landing__button_orange {
-  color: #000;
+  color: #231f20;
   background: #f7941e;
 }
 
