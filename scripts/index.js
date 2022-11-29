@@ -2,7 +2,7 @@
 
 let loader = document.querySelector(".loader");
 
-function sleep(ms = 2000) {
+function sleep(ms = 1000) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
@@ -10,7 +10,7 @@ function hideLoader() {
   loader.classList.add("hidden");
 }
 
-sleep(3000).then(() => {
+sleep(1000).then(() => {
   hideLoader();
 });
 
@@ -86,7 +86,6 @@ function detectDoubleTapClosure() {
     const curTime = new Date().getTime();
     const tapLen = curTime - lastTap;
     if (tapLen < 500 && tapLen > 0) {
-      console.log("Double tapped!");
       event.preventDefault();
       toggleLike();
     } else {
@@ -103,6 +102,39 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 
 giftsCardsArea.addEventListener("dblclick", toggleLike);
+
+// Bubbles, visjs
+var nodes = new vis.DataSet([{ label: "Wife" }, { label: "GF/BF" }, { label: "Friend" }, { label: "Teacher" }, { label: "Coworker" }, { label: "Date" }]);
+var edges = new vis.DataSet();
+var container = document.querySelector(".pick__bubbles");
+var data = {
+  nodes: nodes,
+  edges: edges,
+};
+var options = {
+  nodes: {
+    borderWidth: 0,
+    shape: "circle",
+    color: { background: "rgba(247, 148, 30, 0.3)", highlight: { background: "rgba(247, 148, 30, 0.3)", border: "#f7941e" } },
+    font: { color: "#f7941e" },
+  },
+  physics: {
+    stabilization: false,
+    minVelocity: 0.01,
+    solver: "repulsion",
+    repulsion: {
+      nodeDistance: 40,
+    },
+  },
+};
+var network = new vis.Network(container, data, options);
+
+network.on("click", function (e) {
+  if (e.nodes.length) {
+    var node = nodes.get(e.nodes[0]);
+    nodes.update(node);
+  }
+});
 
 // Blogs
 
@@ -127,3 +159,82 @@ function showHowManyHiddenElements() {
 
 showHowManyHiddenElements();
 buttonBlogs.addEventListener("click", toggleBlogs);
+
+// Pop-up and Discount
+
+let popup = document.querySelector(".popup");
+let formElement = document.querySelector(".popup__container");
+let openPopupButton = document.querySelector("#button-discount");
+let closePopupButton = document.querySelector(".popup__close-button");
+let inputName = document.querySelector(".popup__input_type_name");
+let inputNumber = document.querySelector(".popup__input_type_number");
+let inputEmail = document.querySelector("#send-emails");
+let inputShipping = document.querySelector("#free-shipping");
+let discountSpan = document.querySelector(".popup__result");
+let discount = 0;
+
+function openPopup() {
+  popup.classList.add("popup_opened");
+  renderDiscount();
+}
+
+function closePopup() {
+  popup.classList.remove("popup_opened");
+}
+
+function formSubmitHandler(evt) {
+  evt.preventDefault();
+  closePopup();
+}
+
+function calculateDiscount(discount = 0) {
+  if (checkEmail) {
+    discount += 10;
+  } else {
+    pass;
+  }
+  if (checkShipping) {
+    discount += 3;
+  } else {
+    pass;
+  }
+  return discount;
+}
+
+function inputNameLength() {
+  let stringLength = inputName.textContent.length;
+  if (stringLength > 0) {
+    console.log("check");
+  }
+}
+
+function renderDiscount(discount = calculateDiscount()) {
+  discountSpan.textContent = `${discount}%`;
+}
+
+function checkEmail() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+    return true;
+  } else {
+    console.log("Checkbox is not checked..");
+    return false;
+  }
+}
+
+function checkShipping() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+    return true;
+  } else {
+    console.log("Checkbox is not checked..");
+    return false;
+  }
+}
+
+openPopupButton.addEventListener("click", openPopup);
+closePopupButton.addEventListener("click", closePopup);
+formElement.addEventListener("submit", formSubmitHandler);
+inputName.addEventListener("change", inputNameLength);
+inputEmail.addEventListener("change", checkEmail);
+inputShipping.addEventListener("change", checkShipping);

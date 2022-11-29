@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="normalize.css" />
-    <link rel="stylesheet" href="index.css" />
-    <script src="index.js" async></script>
+    <link rel="stylesheet" href="./vendor/normalize.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <title>Freebie - Gift Store Website</title>
   </head>
   <body class="page">
@@ -17,6 +16,7 @@
     <header class="header">
       <a href="#" class="link header__menu"></a>
       <img src="./images/logo.svg" alt="header logo" class="header__logo" />
+      <img src="./images/logo_footer.svg" alt="header logo" class="header__logo_theme_dark" />
       <a href="#" class="link header__button">Gift Finder</a>
     </header>
     <main>
@@ -80,10 +80,15 @@
           <button type="button" class="button button_place_next">next</button>
         </div>
       </section>
+      <section class="pick">
+        <h2 class="gifts__title">Choose A Mate</h2>
+        <p class="gifts__subtitle">And we will help you to pick a better gift</p>
+        <div class="pick__bubbles"></div>
+      </section>
       <section class="landing">
         <h2 class="landing__title">Ready to get started?</h2>
         <p class="landing__text">Sign up or&nbsp;contact&nbsp;us</p>
-        <a href="#" class="link landing__button landing__button_black">Find gift now</a>
+        <a id="button-discount" href="#" class="link landing__button landing__button_black">Find gift now</a>
         <a href="#" class="link landing__button landing__button_orange">how it works</a>
       </section>
       <section class="blogs">
@@ -123,15 +128,49 @@
       <div class="footer__line"></div>
       <ul class="list footer__socials">
         <li><img src="./images/footer__fb.svg" alt="facebook logo" class="footer__social" /></li>
+        <li><img src="./images/footer__fb_wh.svg" alt="facebook logo" class="footer__social_theme_dark" /></li>
         <li><img src="./images/footer__tw.svg" alt="twitter logo" class="footer__social" /></li>
+        <li><img src="./images/footer__tw_wh.svg" alt="twitter logo" class="footer__social_theme_dark" /></li>
         <li><img src="./images/footer__ig.svg" alt="instagram logo" class="footer__social" /></li>
+        <li><img src="./images/footer__ig_wh.svg" alt="instagram logo" class="footer__social_theme_dark" /></li>
         <li><img src="./images/footer__yt.svg" alt="youtube logo" class="footer__social" /></li>
+        <li><img src="./images/footer__yt_wh.svg" alt="youtube logo" class="footer__social_theme_dark" /></li>
         <li><img src="./images/footer__pt.svg" alt="pinterest logo" class="footer__social" /></li>
+        <li><img src="./images/footer__pt_wh.svg" alt="pinterest logo" class="footer__social_theme_dark" /></li>
       </ul>
       <div class="footer__policy">
         <p class="footer__copyright">&copy; 2010 — 2022</p>
         <a href="#" class="link footer__copyright">Privacy — Terms</a>
       </div>
     </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <h2 class="popup__title">Calculate your personal discount</h2>
+        <form class="popup__form" name="discount">
+          <fieldset class="popup__input-container">
+            <label for="name" class="popup__label">Your Name</label>
+            <input class="popup__input popup__input_type_name" type="text" name="name" id="name" value="Name" placeholder="Your Name" />
+            <label for="number" class="popup__label">Number of Gifts</label>
+            <input class="popup__input popup__input_type_number" type="number" name="number" id="number" min="1" max="5" value="1" />
+            <label for="send-emails" class="popup__label popup__label_direction_right">
+              <input type="checkbox" name="extra-option" id="send-emails" value="send-emails" class="popup__item popup__item_el_extra-options" />
+              <span class="popup__pseudo-item popup__pseudo-item_type_checkbox"></span>
+              <span class="popup__label-text"> Send me emails </span>
+            </label>
+            <label for="free-shipping" class="popup__label popup__label_direction_right">
+              <input type="checkbox" name="extra-option" id="free-shipping" value="free-shipping" class="popup__item popup__item_el_extra-options" />
+              <span class="popup__pseudo-item popup__pseudo-item_type_checkbox"></span>
+              <span class="popup__label-text"> Free delivery </span>
+            </label>
+            <button class="popup__save-discont-button" type="submit">Save</button>
+            <button class="popup__reset-discount-button" type="reset">Reset</button>
+          </fieldset>
+        </form>
+        <div class="popup__discount">Your Discount is <span class="popup__result">15%</span></div>
+        <button type="button" class="popup__close-button" aria-label="Close pop-up button">X</button>
+      </div>
+    </div>
+    <script src="./vendor/vis/vis-network.min.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
   </body>
 </html>
