@@ -26,6 +26,32 @@ allLinks.forEach((element) => {
   element.addEventListener("click", preventDefaultOnLinks);
 });
 
+// Menu
+
+let menuButton = document.querySelector(".header__menu");
+let closeMenuButton = document.querySelector(".menu__close");
+let menu = document.querySelector(".menu");
+
+function toggleMenu() {
+  menu.classList.toggle("menu-active");
+}
+
+menuButton.addEventListener("click", toggleMenu);
+closeMenuButton.addEventListener("click", toggleMenu);
+
+// Swiper
+
+var swiper = new Swiper(".mySwiper", {
+  pagination: {
+    el: ".swiper-pagination",
+    type: "progressbar",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 // Gifts
 
 let giftsCards = document.querySelectorAll(".gifts__card");
@@ -170,12 +196,12 @@ let inputName = document.querySelector(".popup__input_type_name");
 let inputNumber = document.querySelector(".popup__input_type_number");
 let inputEmail = document.querySelector("#send-emails");
 let inputShipping = document.querySelector("#free-shipping");
+let resetButton = document.querySelector("#form-reset-button");
 let discountSpan = document.querySelector(".popup__result");
-let discount = 0;
 
 function openPopup() {
   popup.classList.add("popup_opened");
-  renderDiscount();
+  calculateDiscount();
 }
 
 function closePopup() {
@@ -187,54 +213,37 @@ function formSubmitHandler(evt) {
   closePopup();
 }
 
-function calculateDiscount(discount = 0) {
-  if (checkEmail) {
+function calculateDiscount() {
+  let discount = 10;
+  if (inputName.value.length > 0) {
+    discount += 30;
+  } else {
+    discount += 0;
+  }
+  if (inputNumber.value > 3) {
+    discount += 15;
+  } else {
+    discount += inputNumber.value * 5;
+  }
+  if (inputEmail.checked == 1) {
+    discount += 20;
+  } else {
+    discount += 0;
+  }
+  if (inputShipping.checked == 1) {
     discount += 10;
   } else {
-    pass;
+    discount += 0;
   }
-  if (checkShipping) {
-    discount += 3;
-  } else {
-    pass;
-  }
-  return discount;
-}
-
-function inputNameLength() {
-  let stringLength = inputName.textContent.length;
-  if (stringLength > 0) {
-    console.log("check");
-  }
-}
-
-function renderDiscount(discount = calculateDiscount()) {
   discountSpan.textContent = `${discount}%`;
-}
-
-function checkEmail() {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-    return true;
-  } else {
-    console.log("Checkbox is not checked..");
-    return false;
-  }
-}
-
-function checkShipping() {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-    return true;
-  } else {
-    console.log("Checkbox is not checked..");
-    return false;
-  }
 }
 
 openPopupButton.addEventListener("click", openPopup);
 closePopupButton.addEventListener("click", closePopup);
 formElement.addEventListener("submit", formSubmitHandler);
-inputName.addEventListener("change", inputNameLength);
-inputEmail.addEventListener("change", checkEmail);
-inputShipping.addEventListener("change", checkShipping);
+// it calls calculateDiscount() only on the second click
+formElement.addEventListener("reset", calculateDiscount);
+inputName.addEventListener("change", calculateDiscount);
+inputNumber.addEventListener("change", calculateDiscount);
+inputEmail.addEventListener("change", calculateDiscount);
+inputShipping.addEventListener("change", calculateDiscount);

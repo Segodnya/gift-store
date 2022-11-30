@@ -194,24 +194,19 @@
   touch-action: manipulation;
 }
 
-.lead {
+.mySwiper {
   width: 100%;
-  padding: 50px 0 0;
   box-sizing: border-box;
-}
-.lead__post {
-  position: relative;
-  width: 100%;
   height: calc(100vh - 50px);
+  background-image: url("../images/lead__image-1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-.lead__post:nth-of-type(1) {
-  background-image: url("../images/lead__image-1.png");
-}
-.lead__post:nth-of-type(2) {
-  background-image: url("../images/lead__image-2.png");
+.lead {
+  width: 100%;
+  padding: 50px 0 0;
+  box-sizing: border-box;
 }
 .lead__overlay {
   position: absolute;
@@ -223,7 +218,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  margin: 20px 20px 25vh 20px;
+  margin: 20px 50px 25vh;
   color: #fff;
 }
 .lead__title {
@@ -349,7 +344,7 @@
 }
 
 .pick {
-  padding: 0 30px 40px;
+  padding: 70px 30px 40px;
 }
 .pick__bubbles {
   margin: 0 auto;
@@ -460,6 +455,7 @@
   margin: 0 0 30px;
   font-size: 32px;
   line-height: 40px;
+  text-align: left;
 }
 .blogs__link {
   color: #fff;
@@ -657,4 +653,73 @@
   text-align: center;
   background-color: #f7941e;
   box-sizing: border-box;
+}
+
+.menu {
+  top: 50px;
+  left: 0;
+  position: fixed;
+  height: 80vh;
+  width: 100%;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  opacity: 1;
+  background-color: #fff;
+  z-index: 2;
+  color: #000;
+  overflow-y: auto;
+}
+@media screen and (prefers-color-scheme: dark) {
+  .menu {
+    background-color: #000;
+    color: #fff;
+  }
+}
+.menu__nav {
+  position: relative;
+}
+.menu__links {
+  margin: 0;
+  padding-top: 120px;
+  left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+.menu__link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+@media screen and (prefers-color-scheme: dark) {
+  .menu__link {
+    color: #fff;
+  }
+}
+.menu__close {
+  position: absolute;
+  cursor: pointer;
+  float: right;
+  top: 30px;
+  right: 30px;
+  font-size: 40px;
+  color: #000;
+  text-decoration: none;
+}
+@media screen and (prefers-color-scheme: dark) {
+  .menu__close {
+    color: #fff;
+  }
+}
+.menu-active {
+  transform: translateX(0);
+  opacity: 0.9;
 }

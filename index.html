@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="./vendor/normalize.css" />
+    <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Freebie - Gift Store Website</title>
   </head>
@@ -21,27 +22,34 @@
     </header>
     <main>
       <section class="lead">
-        <article class="lead__post">
-          <div class="lead__overlay"></div>
-          <div class="lead__info">
-            <h1 class="lead__title">Find a gift for your wife or girlfriend</h1>
-            <p class="lead__text">Struggling to find a gift for your wife or girlfriend? No problem!</p>
-            <a href="#" class="link lead__link">Find gift</a>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="lead__overlay"></div>
+              <div class="lead__info">
+                <h1 class="lead__title">Find a gift for your wife or girlfriend</h1>
+                <p class="lead__text">Struggling to find a gift for your wife or girlfriend? No problem!</p>
+                <a href="#" class="link lead__link">Find gift</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="lead__overlay"></div>
+              <div class="lead__info">
+                <h2 class="lead__title">How we work</h2>
+                <p class="lead__text">
+                  We’ve actually already asked hundreds of women what they want, and made a database with the results. All you have to do is take our short survey that only takes seconds, and our
+                  proprietary algorithm will match you with a few perfect gift options.
+                </p>
+                <a href="#" class="link lead__link">Learn More</a>
+              </div>
+            </div>
           </div>
-        </article>
-        <article class="lead__post">
-          <div class="lead__overlay"></div>
-          <div class="lead__info">
-            <h2 class="lead__title">How we work</h2>
-            <p class="lead__text">
-              We’ve actually already asked hundreds of women what they want, and made a database with the results. All you have to do is take our short survey that only takes seconds, and our
-              proprietary algorithm will match you with a few perfect gift options.
-            </p>
-            <a href="#" class="link lead__link">Learn More</a>
-          </div>
-        </article>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
       </section>
-      <section class="gifts">
+      <section id="gifts" class="gifts">
         <h2 class="gifts__title">Gifts for all Occasions</h2>
         <p class="gifts__subtitle">“Try our web app to find the best gifts for all occasions”</p>
         <div class="gifts__cards">
@@ -80,18 +88,18 @@
           <button type="button" class="button button_place_next">next</button>
         </div>
       </section>
-      <section class="pick">
+      <section id="pick" class="pick">
         <h2 class="gifts__title">Choose A Mate</h2>
         <p class="gifts__subtitle">And we will help you to pick a better gift</p>
         <div class="pick__bubbles"></div>
       </section>
-      <section class="landing">
+      <section id="landing" class="landing">
         <h2 class="landing__title">Ready to get started?</h2>
         <p class="landing__text">Sign up or&nbsp;contact&nbsp;us</p>
         <a id="button-discount" href="#" class="link landing__button landing__button_black">Find gift now</a>
         <a href="#" class="link landing__button landing__button_orange">how it works</a>
       </section>
-      <section class="blogs">
+      <section id="blogs" class="blogs">
         <h2 class="blogs__title"></h2>
         <p class="blogs__subtitle"></p>
         <div class="blogs__cards">
@@ -149,7 +157,7 @@
         <form class="popup__form" name="discount">
           <fieldset class="popup__input-container">
             <label for="name" class="popup__label">Your Name</label>
-            <input class="popup__input popup__input_type_name" type="text" name="name" id="name" value="Name" placeholder="Your Name" />
+            <input class="popup__input popup__input_type_name" type="text" name="name" id="name" value="" placeholder="Your Name" />
             <label for="number" class="popup__label">Number of Gifts</label>
             <input class="popup__input popup__input_type_number" type="number" name="number" id="number" min="1" max="5" value="1" />
             <label for="send-emails" class="popup__label popup__label_direction_right">
@@ -163,13 +171,30 @@
               <span class="popup__label-text"> Free delivery </span>
             </label>
             <button class="popup__save-discont-button" type="submit">Save</button>
-            <button class="popup__reset-discount-button" type="reset">Reset</button>
+            <button class="popup__reset-discount-button" type="reset" id="form-reset-button">Reset</button>
           </fieldset>
         </form>
-        <div class="popup__discount">Your Discount is <span class="popup__result">15%</span></div>
+        <div class="popup__discount">Your Discount is <span class="popup__result">10%</span></div>
         <button type="button" class="popup__close-button" aria-label="Close pop-up button">X</button>
       </div>
     </div>
+    <div class="menu">
+      <nav class="menu__nav">
+        <ul class="menu__links">
+          <li><a href="#lead" class="menu__link">Lead</a></li>
+          <li><a href="#gifts" class="menu__link">Gifts</a></li>
+          <li>
+            <a href="#pick" class="menu__link">Pick</a>
+          </li>
+          <li>
+            <a href="#landing" class="menu__link">Landing</a>
+          </li>
+          <li><a href="#blogs" class="menu__link">Blogs</a></li>
+        </ul>
+        <span class="menu__close">x</span>
+      </nav>
+    </div>
+    <script src="./vendor/swiper/swiper-bundle.min.js" defer></script>
     <script src="./vendor/vis/vis-network.min.js" defer></script>
     <script src="./scripts/index.js" defer></script>
   </body>
