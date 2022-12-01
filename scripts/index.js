@@ -152,6 +152,10 @@ var options = {
       nodeDistance: 40,
     },
   },
+  interaction: {
+    dragView: false,
+    zoomView: false,
+  },
 };
 var network = new vis.Network(container, data, options);
 
