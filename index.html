@@ -17,7 +17,6 @@
     <header class="header">
       <a href="#" class="link header__menu"></a>
       <img src="./images/logo.svg" alt="header logo" class="header__logo" />
-      <img src="./images/logo_footer.svg" alt="header logo" class="header__logo_theme_dark" />
       <a href="#" class="link header__button">Gift Finder</a>
     </header>
     <main>
@@ -127,7 +126,7 @@
     </main>
     <footer class="footer">
       <nav class="footer__nav">
-        <a href="#" class="link footer__link"><img src="./images/logo_footer.svg" alt="company logo" class="footer__logo" /></a>
+        <a href="#" class="link footer__link"><img src="./images/logo.svg" alt="company logo" class="footer__logo" /></a>
         <a href="#" class="link footer__link">Home</a>
         <a href="#" class="link footer__link">About</a>
         <a href="#" class="link footer__link">Service</a>
@@ -135,21 +134,17 @@
       </nav>
       <div class="footer__line"></div>
       <ul class="list footer__socials">
-        <li><img src="./images/footer__fb.svg" alt="facebook logo" class="footer__social" /></li>
-        <li><img src="./images/footer__fb_wh.svg" alt="facebook logo" class="footer__social_theme_dark" /></li>
-        <li><img src="./images/footer__tw.svg" alt="twitter logo" class="footer__social" /></li>
-        <li><img src="./images/footer__tw_wh.svg" alt="twitter logo" class="footer__social_theme_dark" /></li>
-        <li><img src="./images/footer__ig.svg" alt="instagram logo" class="footer__social" /></li>
-        <li><img src="./images/footer__ig_wh.svg" alt="instagram logo" class="footer__social_theme_dark" /></li>
-        <li><img src="./images/footer__yt.svg" alt="youtube logo" class="footer__social" /></li>
-        <li><img src="./images/footer__yt_wh.svg" alt="youtube logo" class="footer__social_theme_dark" /></li>
-        <li><img src="./images/footer__pt.svg" alt="pinterest logo" class="footer__social" /></li>
-        <li><img src="./images/footer__pt_wh.svg" alt="pinterest logo" class="footer__social_theme_dark" /></li>
+        <li><img src="./images/footer__fb.svg" alt="facebook logo" class="footer__social footer__social_theme_light" /></li>
+        <li><img src="./images/footer__tw.svg" alt="twitter logo" class="footer__social footer__social_theme_light" /></li>
+        <li><img src="./images/footer__ig.svg" alt="instagram logo" class="footer__social footer__social_theme_light" /></li>
+        <li><img src="./images/footer__yt.svg" alt="youtube logo" class="footer__social footer__social_theme_light" /></li>
+        <li><img src="./images/footer__pt.svg" alt="pinterest logo" class="footer__social footer__social_theme_light" /></li>
       </ul>
       <div class="footer__policy">
         <p class="footer__copyright">&copy; 2010 — 2022</p>
         <a href="#" class="link footer__copyright">Privacy — Terms</a>
       </div>
+      <a href="#" class="link header__button" id="toggleDarkMode">Toggle Theme</a>
     </footer>
     <div class="popup">
       <div class="popup__container">
@@ -197,5 +192,6 @@
     <script src="./vendor/swiper/swiper-bundle.min.js" defer></script>
     <script src="./vendor/vis/vis-network.min.js" defer></script>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/toggleDarkMode.js" defer></script>
   </body>
 </html>
