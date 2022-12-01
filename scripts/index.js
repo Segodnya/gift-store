@@ -238,11 +238,15 @@ function calculateDiscount() {
   discountSpan.textContent = `${discount}%`;
 }
 
+function resetDiscount() {
+  let discount = 15;
+  discountSpan.textContent = `${discount}%`;
+}
+
 openPopupButton.addEventListener("click", openPopup);
 closePopupButton.addEventListener("click", closePopup);
 formElement.addEventListener("submit", formSubmitHandler);
-// it calls calculateDiscount() only on the second click
-formElement.addEventListener("reset", calculateDiscount);
+formElement.addEventListener("reset", resetDiscount);
 inputName.addEventListener("change", calculateDiscount);
 inputNumber.addEventListener("change", calculateDiscount);
 inputEmail.addEventListener("change", calculateDiscount);
