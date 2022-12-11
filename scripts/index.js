@@ -255,3 +255,24 @@ inputName.addEventListener("change", calculateDiscount);
 inputNumber.addEventListener("change", calculateDiscount);
 inputEmail.addEventListener("change", calculateDiscount);
 inputShipping.addEventListener("change", calculateDiscount);
+
+// Liquid Header
+
+let prevScrollpos = window.pageYOffset;
+
+/* Get the header element and it's position */
+const headerDiv = document.querySelector(".header");
+let headerBottom = headerDiv.offsetTop + headerDiv.offsetHeight;
+
+window.onscroll = function () {
+  var currentScrollPos = window.pageYOffset;
+  /* if we're scrolling up, or we haven't passed the header,
+     show the header at the top */
+  if (prevScrollpos > currentScrollPos || currentScrollPos < headerBottom) {
+    headerDiv.style.top = "0";
+  } else {
+    /* otherwise we're scrolling down & have passed the header so hide it */
+    headerDiv.style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+};
